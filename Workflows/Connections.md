@@ -2,7 +2,7 @@
 id: c1bs7wsjfbhb0zipaywqv1
 title: Connections are love, Connections are life
 desc: ""
-updated: 1765437992230
+updated: 1765438126325
 created: 1654223767390
 currentStep: 0
 totalSteps: 0
@@ -47,6 +47,7 @@ I know that there has also been sone discussion around adjusting the connections
 
 ## Unit operation rotation
 Currently, rotating operations also rotates the connected stream nodes in some instances, messing up the pre-existing layout. This is disgusting and should not happen.
+
 ![](/assets/images/nonRotated.png)
 ---
 ![](/assets/images/rotated.png)
