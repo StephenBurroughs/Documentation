@@ -99,8 +99,8 @@ publishing:
     enableRandomlyColoredTags: true
     writeStubs: false
     seo:
-        title: Dendron
-        description: Personal knowledge space
+        title: Ahuora
+        description: General Projects
     github:
         enableEditLink: true
         editLinkText: Edit this page on GitHub

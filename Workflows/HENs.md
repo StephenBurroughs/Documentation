@@ -1,11 +1,10 @@
 ---
-id: c1bs7wsjfbhb0zipaywqv1
+id: c1bs7wsjfbhb0zipasafg4124512
 title: Beat the Heat (Exchanger Networks)
 desc: ""
-updated: 1765763982116
+updated: 1765764468396
 created: 1654223767390
-currentStep: 0
-totalSteps: 0
+nav_exclude: false
 ---
 
 Current platform workflows support a one directional flow of information from flowsheets to stream data projects, which are then used to perform pinch analysis and generate grid diagrams. This is fine for producing insights, but is limited in that it does not allow the user to compare or optimise different HEN designs and integrate them back into the broader flowsheet structure. The flowsheet itself is also limited in that the full flowsheet view is suboptimal for interpreting details of the HEN without supurflous intermediate operations. 

@@ -4,8 +4,7 @@ title: Connections are love, Connections are life
 desc: ""
 updated: 1765438126325
 created: 1654223767390
-currentStep: 0
-totalSteps: 0
+nav_exclude: false
 ---
 
 Currently, many aspects of the flowsheet UI can be considered functional, but less than ideal. This presents a bottleneck in broader access to platform capabilities as the flowsheet is the core interface through which models are defined and broader insights are accessed. There are several areas wherein our current workflows can be improved.
