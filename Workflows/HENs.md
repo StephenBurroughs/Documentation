@@ -21,7 +21,7 @@ Previously, we have had several long discussions around how to view and interpre
 
 How does this look in practice?
 
-- We have a seperate flowsheet view in which we have our steam system, defined using headers. 
+- We have a seperate flowsheet view in which we have our steam system, defined using headers (we may need to consider an additional operation for cold water?). 
     - Each header represents one steam system utility. headers have defined inlet properties which sets their utility values (eg temperature and pressure), but have their inlet flow constrained by their outlet demand. By default, headers have **ONLY** a condensate and vent outlet. 
     
 - Thermo operations should appear in each flowsheet view, as should mixers/splitters. 
@@ -36,13 +36,13 @@ How does this look in practice?
     - It should be possible to navigate between flowsheets from the unit operation summary, or possibly from the flowsheet itself somehow.
 - Packing is synced across both flowsheets. 
 
-For heaters/coolers where a supplier is not selected, this is solved as usual and the heat flow property is treated as an external energy demand. On the utility flowsheet, these are displayed as heaters and coolers rather than exchangers.
+For heaters/coolers where a supplier is not selected, this is solved as usual and the heat flow property is treated as an external energy demand. On the utility flowsheet, these are displayed as heaters and coolers rather than exchangers. *The operations I've listed above are not final, for instance it is probably worthwhile including valves in some circumstances. We should probably have the ability to add operations to the utility flowsheet directly.*
 
 Optionally, this could be extended somewhat...
-- Rather than just focussing on separate flowsheet views, headers could also have two graphic objects, one each for utility and process flowsheets. This means that we can show both abstractions as outlined previously, but also gives us the option to show a unified view, wherein we highlight hot/cold streams and their steam system supply, while all intermediate objects are present but greyed out (or alternatively all header interactions are greyed out and the main processes are interactive). This means that the user can view just utilities, just processes, or a combination of the two with a greter level 
+- Rather than just focussing on separate flowsheet views, operations could also have two graphic objects, one each for utility and process flowsheets. This means that we can show both abstractions as outlined previously, but also gives us the option to show a unified view, wherein we highlight hot/cold streams and their steam system supply, while all intermediate objects are present but greyed out (or alternatively all header interactions are greyed out and the main processes are interactive). This means that the user can view just utilities, just processes, or a combination of the two with a greater level of customisation around the overall presentation. In such systems, we should probably also be able to identify operations that should also be shown on the utility only view, such as those with a header on either side (like a letdown valve).
 
 ### What are the benefits to this?
-First, it makes it much easier to deal with utility systems within the flowsheet. It is also more realistic than our current approach of heaters and coolers as standalone operations. The greatest strength however, is that it provides us with some very useful data and interfaces for dealing with other areas of HENS.
+First, it makes it much easier to deal with utility systems within the flowsheet. It is also more realistic than our current approach of heaters and coolers as standalone operations. It also leads quite nicely into better integration with HENs and GD workflows.
 
 ## Stream data and grid diagrams.
 Current implementations for grid diagram HEN representations are also somewhat limited in that they are static in nature - ie, streams and exchanger pairs are extracted from stream data and cannot be modified in situ. The result of this is that our HEN functionality under the status quo is limited to solely representing the network as it stands and fails to account for any modifications that the user may wish to explore.
