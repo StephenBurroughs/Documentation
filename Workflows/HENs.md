@@ -1,8 +1,8 @@
 ---
-id: c1bs7wsjfbhb0zipasafg4124512
+id: HENsReworks
 title: Beat the Heat (Exchanger Networks)
 desc: ""
-updated: 1765764468396
+updated: 1765764519981
 created: 1654223767390
 nav_exclude: false
 ---
