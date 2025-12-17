@@ -19,27 +19,30 @@ Previously, we have had several long discussions around how to view and interpre
 - We should have two flowsheets, one for the flowsheet and one for utilities.
 - We should be able to create supply/demand links between the two and sync data across each.
 
+![](/assets/images/UteSupply.png)
+---
+![](/assets/images/Utility.png)
 How does this look in practice?
 
-- We have a seperate flowsheet view in which we have our steam system, defined using headers (we may need to consider an additional operation for cold water?). 
+- We have a seperate flowsheet view in which we have our steam system, defined using headers (we may need to consider an additional operation for ring main water?). 
     - Each header represents one steam system utility. headers have defined inlet properties which sets their utility values (eg temperature and pressure), but have their inlet flow constrained by their outlet demand. By default, headers have **ONLY** a condensate and vent outlet. 
     
-- Thermo operations should appear in each flowsheet view, as should mixers/splitters. 
-    - Other superflous operations are not shown on the utility system flowsheet.
-    - Streams also require some changes here. We don't want to show intermediate operations (such as pressure changes), but such operations naturally have an impact on stream conditions. There are a couple of options for addressing this:
-        - We show a single stream between the operations, but this stream only has a limited set of properties displayed, such as enthalpy, temperature, flow rate.
-        - We don't show streams at all, just connection lines. The lefthand summary panel for operations then holds information about the inlet and outlet conditions for the object in question.
 - Heaters and coolers should be modified. First, heaters and coolers should have an option to define exchanger properties, being area and HTC. They should also have an optional connection field of "supplier". This should be a dropdown field that has headers as the entry options. Upon selecting a header, several things happen:
     - A new outlet is created for the header in question, with its outlet flow constrained by the energy demand of the heater/cooler.
-    - On the utility flowsheet, the heater/cooler in question should be displayed as a heat exchanger connected to this outlet.
-    - A new connection is drawn on the main flowsheet to the operation in question. This connection should be clearly distinct in style, similar to that of logic blocks. 
+    - On the utility flowsheet, the heater/cooler in question should be displayed as an abstracted object. This connection should be clearly distinct in style, similar to that of logic blocks
+    - A similar connection is drawn on the main flowsheet to the operation in question.
     - It should be possible to navigate between flowsheets from the unit operation summary, or possibly from the flowsheet itself somehow.
 - Packing is synced across both flowsheets. 
 
-For heaters/coolers where a supplier is not selected, this is solved as usual and the heat flow property is treated as an external energy demand. On the utility flowsheet, these are displayed as heaters and coolers rather than exchangers. *The operations I've listed above are not final, for instance it is probably worthwhile including valves in some circumstances. We should probably have the ability to add operations to the utility flowsheet directly.*
+For heaters/coolers where a supplier is not selected, this is solved as usual and the heat flow property is treated as an external energy demand.
+
+### Some further considerations
+There are some situations in which utility systems become more complex and require additional features. 
+- It may be worth exploring situations in which a header/ringmain supplies multiple utility operations in a chained fashion.
+- We should probably also have the ability to add operations like valves to the utility flowsheet directly to account for chained headers in letdown scenarios.
 
 Optionally, this could be extended somewhat...
-- Rather than just focussing on separate flowsheet views, operations could also have two graphic objects, one each for utility and process flowsheets. This means that we can show both abstractions as outlined previously, but also gives us the option to show a unified view, wherein we highlight hot/cold streams and their steam system supply, while all intermediate objects are present but greyed out (or alternatively all header interactions are greyed out and the main processes are interactive). This means that the user can view just utilities, just processes, or a combination of the two with a greater level of customisation around the overall presentation. In such systems, we should probably also be able to identify operations that should also be shown on the utility only view, such as those with a header on either side (like a letdown valve).
+- We could have a third flowsheet view, being the site/master view. This view would just show abstractions, outlining the connection between all areas of the site and utility system. 
 
 ### What are the benefits to this?
 First, it makes it much easier to deal with utility systems within the flowsheet. It is also more realistic than our current approach of heaters and coolers as standalone operations. It also leads quite nicely into better integration with HENs and GD workflows.
