@@ -22,7 +22,8 @@ Previously, we have had several long discussions around how to view and interpre
 ![](/assets/images/UteSupply.png)
 ---
 ![](/assets/images/Utility.png)
-How does this look in practice?
+
+### How does this look in practice?
 
 - We have a seperate flowsheet view in which we have our steam system, defined using headers (we may need to consider an additional operation for ring main water?). 
     - Each header represents one steam system utility. headers have defined inlet properties which sets their utility values (eg temperature and pressure), but have their inlet flow constrained by their outlet demand. By default, headers have **ONLY** a condensate and vent outlet. 
