@@ -2,7 +2,7 @@
 id: FSStateRework
 title: States
 desc: ''
-updated: 1774832017303
+updated: 1774832236514
 created: 1774826755789
 nav_order: 3
 nav_exclude: false
@@ -28,4 +28,8 @@ The case for structural changes is similar. Basically, we should let users save 
 Now, one approach to this would be to simply save the full state of the flowsheet rather than indexing property values. If we do this, then structural changes don't matter as we can just go back to what it looked like before. This is pretty horrible though as we're storing far more information than is really necessary in most cases, plus it's pretty bad to be storing every multi steady state solve across every version of the flowsheet structure if the old ones aren't really needed anymore. A better option is probably to be able to track versions of the flowsheet structure instead (eg multiple flowsheets for a given project). This means that a project would have a set of flowsheets (created manually by the user), with each flowsheet then having a set of scenarios (including the base case), and each scenario having a set of states. This could be extended to allow the user to actually just define different flowsheets entirely under one project (eg rather than having multiple abstracted processes in one flowsheet, they could be separate flowsheets and the user could defined expressions/constraints between them and solve them as one) but this could get pretty messy, so maybe it's better to just have it as independent flowsheets under one given project.
 
 ## So, where to from here?
-Well, there are a few things to consider. First, are these outlined approaches a good way to move forward? Secondly, where should these workflows be held and what should they look like? Thirdly, how does this effect workflows for comparative visualisation? Should we now have a common workflow that allows users to select flowsheets, states, and properties to graph? Finally, what does this mean for P-Graph?
+Well, there are a few things to consider:
+- First, are these outlined approaches a good way to move forward? 
+- Secondly, where should these workflows be held and what should they look like?
+- Thirdly, how does this effect workflows for comparative visualisation? Should we now have a common workflow that allows users to select flowsheets, states, and properties to graph?
+- Finally, what does this mean for P-Graph and structural analysis?
